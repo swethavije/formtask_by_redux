@@ -3,7 +3,7 @@ import {useContext, useState } from 'react';
 import {  useNavigate } from 'react-router-dom';
 import { stateContext } from './Context';
 import { useDispatch, useSelector } from 'react-redux';
-import { taskArray } from './stateSlice';
+import {  taskfunc } from './stateSlice';
 
 
 const Home = () => {
@@ -24,7 +24,7 @@ const Home = () => {
     const removeItem = (id) => {
         // setItems(()=>items.filter((item,index)=>index != id))
         // console.log(items)
-        dispatch(taskArray(state.taskArray.filter((item,index)=>index != id)));
+        dispatch(taskfunc(state.taskArray.filter((item,index)=>index != id)));
 
       };
     //   localStorage.setItem('taskArray', JSON.stringify(items));

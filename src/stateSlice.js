@@ -4,16 +4,16 @@ const stateSlice =createSlice({
     name:"task",
     initialState:{
         isLogin:JSON.parse(localStorage.getItem("isLogin")) || false,
-        taskArray:[],
+        taskArray:[]
     },
     reducers:{
         login:(state,action)=>{
             state.isLogin=action.payload;
         },
-        taskArray:(state,action)=>{
+        taskfunc:(state,action)=>{
             state.taskArray=action.payload;
         },
     },
 });
-export const{login,taskArray}=stateSlice.actions;
+export const{login,taskfunc}=stateSlice.actions;
 export default stateSlice.reducer

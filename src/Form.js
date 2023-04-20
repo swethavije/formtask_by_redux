@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { stateContext } from './Context';
 import { useDispatch, useSelector } from 'react-redux';
-import { taskArray } from './stateSlice';
+import { taskfunc } from './stateSlice';
 
 const Form = () => {
     
@@ -20,7 +20,7 @@ const Form = () => {
   
  useEffect(()=>{
       if(params.get("name")!=null){
-        const tem=state.taskArray;
+        const tem=state.taskArray ;
         console.log(tem)
         const edi=tem.find((item)=>item.name === params.get("name"));
         console.log(edi)
@@ -73,7 +73,7 @@ const Form = () => {
             // console.log(arrVal)
             // setArray([...taskArray, arrVal]);
             // dispatch({type:"FORM",payload:[...state.taskArray,{name:taskName,des:description,iscomplete:completed}]})
-            dispatch(taskArray([arrVal]))
+            dispatch(taskfunc([...state.taskArray,arrVal]))
         }else{
             const editObj =state.taskArray.map(obj=>{
                 if(obj.name === params.get("name")){
@@ -86,7 +86,7 @@ const Form = () => {
             console.log("editObj",editObj)
            
             // dispatch({type:"FORM",payload:editObj}) 
-            dispatch(taskArray([editObj]))
+            dispatch(taskfunc(editObj))
         }
   
        
